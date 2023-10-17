@@ -2,7 +2,7 @@
 A Python web scraper made with Selenium that retrieves all matches played by Fiorentina in the last Season.
 
 ### Description
-Viola-Matches is a Python script designed to scrape all matches played by Fiorentina in the last Serie A season from the website adamchoi.co.uk. It utilizes Selenium for web scraping, allowing you to easily gather information about Fiorentina's performance during the season.
+Viola-Matches is a Python script designed to scrape all matches played by Fiorentina in the current Serie A season from the website adamchoi.co.uk. It utilizes Selenium for web scraping, allowing you to easily gather information about Fiorentina's performance during the season.
 
 ### Requirements
 
