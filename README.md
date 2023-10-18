@@ -9,6 +9,7 @@ To run Viola-Matches, you need to have the following dependencies installed:
 - [Python 3.11.6](https://www.python.org/downloads/)
 - Selenium
 - Pandas
+- tqdm
 
 You can install the required packages using the following commands:
 
@@ -18,6 +19,10 @@ pip install selenium
 
 ```bash
 pip install pandas
+```
+
+```bash
+pip install tdqm
 ```
 
 > [!NOTE]
