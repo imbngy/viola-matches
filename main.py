@@ -2,11 +2,16 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.chrome.options import Options
 import pandas as pd
+
+options = Options()
+options.add_argument("--headless=new")
+options.add_argument("--window-size=1920,1080")
 
 website = "https://www.adamchoi.co.uk/overs/detailed"
 
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(options=options)
 driver.get(website)
 
 all_matches_btn = driver.find_element(By.XPATH, '//*[@id="page-wrapper"]/div/home-away-selector/div/div/div/div/label[2]')
@@ -38,5 +43,5 @@ df = pd.DataFrame({'Date':date,'Home Team':home_team,'Score':score,'Away Team':a
 
 df.to_csv('matches.csv',index=False)
 
-print(df)
+print('#######Job done.#######')
 
