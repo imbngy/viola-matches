@@ -4,6 +4,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
 import pandas as pd
+from tqdm import tqdm
 
 options = Options()
 options.add_argument("--headless=new")
@@ -29,11 +30,13 @@ home_team = []
 score = []
 away_team = []
 
-for match in matches:
-    date.append(match.find_element(By.XPATH,'./td[1]').text)
-    home_team.append(match.find_element(By.XPATH,'./td[2]').text)
-    score.append(match.find_element(By.XPATH,'./td[3]').text)
-    away_team.append(match.find_element(By.XPATH,'./td[4]').text)
+with tqdm(total=len(matches)) as pbar:
+    for match in matches:
+        date.append(match.find_element(By.XPATH,'./td[1]').text)
+        home_team.append(match.find_element(By.XPATH,'./td[2]').text)
+        score.append(match.find_element(By.XPATH,'./td[3]').text)
+        away_team.append(match.find_element(By.XPATH,'./td[4]').text)
+        pbar.update(1)
 
 
 
@@ -43,5 +46,5 @@ df = pd.DataFrame({'Date':date,'Home Team':home_team,'Score':score,'Away Team':a
 
 df.to_csv('matches.csv',index=False)
 
-print('#######Job done.#######')
+print('#######   Job done.   #######')
 
